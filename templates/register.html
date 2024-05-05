@@ -1,0 +1,61 @@
+{% load static %}
+<style>
+    .register-box {
+    position: absolute;
+    top: 50%;
+    left: auto;
+    right: 13%; /* Move it further to the right */
+    transform: translate(50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    max-width: 500px; /* Make it wider */
+    height: 250px;
+}
+
+/* Adjust button styles as needed */
+    .register-button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+    .register-button:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+}
+
+</style>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/img.css' %}">
+
+{% if user.is_authenticated %}
+<div class="login-container">
+    <h1 class="font-bold text-3xl mb-4">Welcome to Bank Loan System</h1>
+
+    <p class="leading-normal mb-3">Personal Loan Interest - <b style="font-size: 1.3em;">6%</b></p>
+    <p class="leading-normal mb-3">Education Loan Interest - <b style="font-size: 1.3em;">5.5%</b></p>
+    <p class="leading-normal mb-3">Agriculture Loan Interest - <b style="font-size: 1.3em;">4.5%</b></p>
+    <p class="leading-normal mb-5">Business Loan Interest - <b style="font-size: 1.3em;">10.5%</b></p>
+    
+
+    <div class="flex justify-center w-full">
+        <a href="/loan/loan-request/" class="register-button">Apply Loan</a>
+    </div>
+</div>
+
+
+
+{% else %}
+<div class="login-container">
+    <h1 class="font-bold text-3xl mb-4">Bank Loan System</h1>
+    <p class="leading-normal mb-6">Please Register to continue.</p>
+    <div class="flex justify-center w-full">
+        <a href="/account/signup-customer/" class="register-button">Register</a>
+    </div>
+</div>
+{% endif %}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icon CDN  -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>Admin Dashboard</title>
+    {% block block_js %}{% endblock %}
+    {% block css_block %}{% endblock %}
+</head>
+
+<body>
+    <body id="body-pd">
+        
+        
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Toggle button -->
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left links -->
+                    <ul class="mb-2 navbar-nav me-auto mb-lg-0">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/manager/dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/manager/users">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/manager/transaction-loan">Transactions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/manager/approved-loan">Approved Loans</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/manager/loan-request-user">Requested Loans</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/manager/rejected-loan">Rejected Loans</a>
+                        </li>
+                    </ul>
+                    <!-- Left links -->
+                    <ul class="mb-2 navbar-nav ms-auto mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/manager/add-category">Add Category</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/account/logout-customer">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Collapsible wrapper -->
+            </div>
+            <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+
+        
+
+        <!--Container Main start-->
+        <div class="height-100 bg-light">
+            {% block body_block %}{% endblock %}
+        </div>
+        <!--Container Main end-->
+
+        <script src="{% static 'js/modal.js' %}"></script>
+        <script src="{% static 'js/admin.js' %}"></script>
+        <!-- MDB -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+    </body>
+</html>

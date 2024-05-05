@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_block %}
+
+{% include 'image.html' %}
+
+{% endblock %}
+
+{% block body_block %}
+{% include 'navbar.html' %}
+
+<div class="container" >
+    <img src="{% static 'images/img-1.png' %}" class="full-screen-image" alt="Background Image">
+    {% if user.is_authenticated %}
+        {% include 'register.html' %}
+    {% else %}
+        {% include 'register.html' %}
+    {% endif %}
+</div>
+{% endblock %}
