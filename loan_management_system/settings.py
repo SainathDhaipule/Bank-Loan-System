@@ -1,8 +1,14 @@
 from pathlib import Path
 import os
-import django_heroku
 import dj_database_url
 from decouple import config
+
+# Try to import django_heroku, but don't fail if it's not available (local dev)
+try:
+    import django_heroku
+    DJANGO_HEROKU_INSTALLED = True
+except ImportError:
+    DJANGO_HEROKU_INSTALLED = False
 
 from django.db.models import BigAutoField
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -140,7 +146,9 @@ MEDIA_URL = '/media/'
 
 LOGIN_URL = '/account/login/'
 
-django_heroku.settings(locals())
+# Apply django_heroku settings if available (Heroku deployment)
+if DJANGO_HEROKU_INSTALLED:
+    django_heroku.settings(locals())
 
 # Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
